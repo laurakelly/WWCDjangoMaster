@@ -17,11 +17,11 @@ class PollAdmin(admin.ModelAdmin):
 	#(None, {'fields': ['question']}),
 	#('Date information', {'fields': ['pub_date']})
 	#]
-	fieldsets = [
-	(None, {'fields': ['question']}),
-	('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
-	]
+	list_display = ['question', 'pub_date', 'was_published_today']
 	inlines = [ChoiceInline]
+	list_filter = ['pub_date']
+	search_fields = ['question']
+	date_heirarchy = 'pub_date'
 
 # admin.site.register(Choice)
 
